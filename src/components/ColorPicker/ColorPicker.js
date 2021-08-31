@@ -1,5 +1,7 @@
 import style from './ColorPicker.module.css';
 import { ChevronDown } from 'react-feather';
+import ModalPalette from '../ModalPalette';
+import ModalChooseColor from '../ModalChooseColor';
 
 function ColorPicker(props) {
   return (
@@ -13,6 +15,8 @@ function ColorPicker(props) {
           <ChevronDown className={style.Icon} />
         </div>
       </div>
+      {/* <ModalPalette /> */}
+      <ModalChooseColor />
     </div>
   );
 }
