@@ -6,12 +6,43 @@
   z-index: 2;
   position: absolute;
   top: 65px;
-  left: 55px;
+  left: 260px;
   padding-top: 20px;
   padding-bottom: 20px;
   width: 200px;
   height: 90px;
   background-color: #fff;
-  color: #fff;
+  color: #ffffff;
   border-radius: 10px;
+}
+.SliderContainer {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 65px;
+}
+.ButtonContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.CancelButton {
+  font-size: 12px;
+  width: 60px;
+  height: 20px;
+  color: #000000;
+  text-transform: uppercase;
+  background-color: #b6b6b4;
+  margin-right: 20px;
+  border: 1px solid #000000;
+}
+.OkButton {
+  font-size: 12px;
+  width: 60px;
+  height: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  background-color: #8fbc8f;
+  border: 1px solid #000000;
 }

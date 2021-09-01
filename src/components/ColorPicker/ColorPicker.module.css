@@ -18,7 +18,6 @@
   background-color: #ffffff;
   align-items: center;
   justify-content: center;
-
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
@@ -28,9 +27,7 @@
   color: #b6b6b4;
   text-align: left;
   padding-left: 10px;
-  padding-top: 7px;
   width: 150px;
-
   text-transform: uppercase;
 }
 .Square {
@@ -39,14 +36,7 @@
   border-right: 1px solid #b6b6b4;
   border-left: 1px solid #b6b6b4;
 }
-.SquareColor {
-  width: 15px;
-  height: 15px;
-  background-color: aqua;
-  margin-top: 7px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 .Arrow {
   margin-top: 7px;
   width: 30px;

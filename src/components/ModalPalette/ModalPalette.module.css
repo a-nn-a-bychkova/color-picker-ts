@@ -2,16 +2,43 @@
   z-index: 2;
   position: absolute;
   top: 65px;
-  left: 30px;
+  left: 270px;
   background-color: #fff;
   width: 200px;
-  height: 100px;
   color: #fff;
   text-align: center;
   border-radius: 10px;
   font-family: sans-serif;
+  padding: 10px;
+  border: 1px solid #b6b6b4;
 }
-
+.List {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+}
+.Text {
+  font-size: 12px;
+  color: #b6b6b4;
+}
+.Item {
+  display: flex;
+  font-size: 12px;
+  list-style: none;
+  color: #b6b6b4;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 10px;
+}
+.Item:hover {
+  background-color: #0000ff;
+}
+.ItemText {
+  margin: 0 10px 0 0;
+}
 .TipTriangle {
   position: absolute;
   width: 0;

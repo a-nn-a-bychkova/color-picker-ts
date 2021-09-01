@@ -16,6 +16,7 @@
     "react-feather": "^2.0.9",
     "react-scripts": "4.0.3",
     "react-slider-color-picker": "^2.0.0",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
