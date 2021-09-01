@@ -1,19 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './App.css';
 import ColorPicker from './ColorPicker';
 import ModalChooseColor from './ModalChooseColor';
 import ModalPalette from './ModalPalette';
+import Context from '../contexts/context';
 
 function App() {
-  const [color, setColor] = useState('#ff0000');
   const [selectedColors, setSelectedColors] = useState([]);
   const [showModalChoose, setShowModalChoose] = useState(false);
   const [showModalPalette, setShowModalPalette] = useState(false);
-  useEffect(() => {}, [color]);
-  function updateColor(value) {
-    setColor(value);
-    console.log('this is updateColorFunction', color);
-  }
 
   function toggleModalChoose() {
     if (showModalPalette) {
@@ -30,6 +25,7 @@ function App() {
   }
 
   function addSelectedColor(chosenColor) {
+    console.log('chosenColor in add function', chosenColor);
     if (chosenColor) {
       setSelectedColors([...selectedColors, chosenColor]);
       console.log('selectedColorsArray', selectedColors);
@@ -40,13 +36,11 @@ function App() {
   return (
     <div className="App">
       <ColorPicker
-        color={color}
         toggleModalChoose={toggleModalChoose}
         toggleModalPalette={toggleModalPalette}
       />
       {showModalChoose && (
         <ModalChooseColor
-          updateColor={updateColor}
           toggleModalChoose={toggleModalChoose}
           addSelectedColor={addSelectedColor}
         />

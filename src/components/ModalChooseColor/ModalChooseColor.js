@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import Context from '../../contexts/context';
 import style from './ModalChooseColor.module.css';
 import { LightnessSlider } from 'react-slider-color-picker';
 import convert from 'color-convert';
 
-function ModalChooseColor({
-  updateColor,
-  toggleModalChoose,
-  addSelectedColor,
-}) {
-  const [redColor, setRedColor] = useState({ h: 0, s: 100, l: 50, a: 1 });
-  const [hexRedColor, setHexRedColor] = useState('#ff0000');
-  const [greenColor, setGreenColor] = useState({ h: 120, s: 100, l: 50, a: 1 });
-  const [hexGreenColor, setHexGreenColor] = useState('#00ff00');
-  const [blueColor, setBlueColor] = useState({ h: 240, s: 100, l: 50, a: 1 });
-  const [hexBlueColor, setHexBlueColor] = useState('#0000ff');
-  const [chosenColor, setChosenColor] = useState('');
+function ModalChooseColor({ toggleModalChoose, addSelectedColor }) {
+  const [hexRedColor, setHexRedColor] = useState('ff0000');
+  const [hexGreenColor, setHexGreenColor] = useState('00ff00');
+  const [hexBlueColor, setHexBlueColor] = useState('0000ff');
+
+  const { redColor, setRedColor } = useContext(Context);
+  const { greenColor, setGreenColor } = useContext(Context);
+  const { blueColor, setBlueColor } = useContext(Context);
+  const { chosenColor, setChosenColor } = useContext(Context);
 
   useEffect(() => {
-    updateColor(chosenColor);
-  }, [chosenColor]);
+    function handleMouseUp(e) {
+      if (
+        !e.target.classList.contains('ModalChooseColor_Container__213HF') &&
+        !e.target.classList.contains('ModalChooseColor_OkButton__2q4sh') &&
+        !e.target.classList.contains('ColorPicker_Square__3YcvT') &&
+        !e.target.classList.contains('ModalChooseColor_CancelButton__ZQB7p')
+      ) {
+        toggleModalChoose();
+      }
+    }
+    window.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
 
   function updatedColorToString(newColor) {
     return [newColor.h, newColor.s, newColor.l];
   }
-  //можно было сделать обычные переменные для хекс цветов
 
   function mixChosenColors() {
     let r = hexRedColor.slice(0, 2);
@@ -37,8 +48,8 @@ function ModalChooseColor({
     let updatedColor = updatedColorToString(newColor);
     setHexRedColor(convert.hsl.hex(updatedColor));
     mixChosenColors();
-    console.log('localStorageRed', localStorage.setItem('red', newColor));
   };
+
   const handleChangeGreenColor = newColor => {
     setGreenColor(newColor);
     let updatedColor = updatedColorToString(newColor);
@@ -56,12 +67,14 @@ function ModalChooseColor({
     event.preventDefault();
     toggleModalChoose();
   };
+
   const handleOKClick = event => {
     event.preventDefault();
     console.log('chosenColor', chosenColor);
     addSelectedColor(chosenColor);
-    toggleModalChoose();
+    // toggleModalChoose();
   };
+
   return (
     <div className={style.Container}>
       <div className={style.SliderContainer}>

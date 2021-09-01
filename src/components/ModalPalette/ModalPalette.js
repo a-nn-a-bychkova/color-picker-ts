@@ -5,7 +5,16 @@ import { v4 as uuidv4 } from 'uuid';
 
 function ModalPalette({ toggleModalPalette, selectedColors }) {
   useEffect(() => {
-    console.log('selectedColors in Palette', selectedColors);
+    function handleMouseUp(e) {
+      if (!e.target.classList.contains('ModalPalette_Container__V101Q')) {
+        toggleModalPalette();
+      }
+    }
+    window.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
   }, []);
   // const deleteColor = key => {
   //   console.log(key);

@@ -1,9 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import Context from '../../contexts/context';
 import style from './ColorPicker.module.css';
 import { ChevronDown } from 'react-feather';
 
-function ColorPicker({ color, toggleModalChoose, toggleModalPalette }) {
-  useEffect(() => {}, []);
+function ColorPicker({ toggleModalChoose, toggleModalPalette }) {
+  const { color, setColor } = useContext(Context);
+  const { chosenColor, setChosenColor } = useContext(Context);
+  useEffect(() => {
+    setColor(chosenColor);
+  }, [chosenColor, setChosenColor]);
 
   const s = {
     backgroundColor: color,
@@ -13,8 +18,8 @@ function ColorPicker({ color, toggleModalChoose, toggleModalPalette }) {
     marginLeft: 'auto',
     marginRight: 'auto',
   };
+
   const handleSquareClick = event => {
-    //при клике на кнопку все значения сбрасываются
     event.preventDefault();
     toggleModalChoose();
   };
