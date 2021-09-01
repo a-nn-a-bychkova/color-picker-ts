@@ -69,3 +69,13 @@
     left: 42%;
   }
 }
+@media screen and (min-width: 1680px) {
+  .Container {
+    left: 43%;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .Container {
+    left: 44%;
+  }
+}
