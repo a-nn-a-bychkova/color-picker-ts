@@ -8,7 +8,7 @@ export default function Provider({ children }) {
   const [color, setColor] = useState('#ff0000');
   const [selectedColors, setSelectedColors] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [color]);
 
   const providerValue = useMemo(() => {
     return {

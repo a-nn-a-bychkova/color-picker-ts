@@ -7,7 +7,9 @@ function ColorPicker({ toggleModalChoose, toggleModalPalette }) {
   const { color, setColor } = useContext(Context);
   const { chosenColor, setChosenColor } = useContext(Context);
   useEffect(() => {
-    setColor(chosenColor);
+    if (chosenColor) {
+      setColor(chosenColor);
+    }
   }, [chosenColor, setChosenColor]);
 
   const s = {
@@ -18,7 +20,6 @@ function ColorPicker({ toggleModalChoose, toggleModalPalette }) {
     marginLeft: 'auto',
     marginRight: 'auto',
   };
-
   const handleSquareClick = event => {
     event.preventDefault();
     toggleModalChoose();

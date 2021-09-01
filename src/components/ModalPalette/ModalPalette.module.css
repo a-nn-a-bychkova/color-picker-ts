@@ -1,8 +1,8 @@
 .Container {
   z-index: 2;
   position: absolute;
-  top: 65px;
-  left: 270px;
+  top: 105px;
+  left: 24%;
   background-color: #fff;
   width: 200px;
   color: #fff;
@@ -13,11 +13,12 @@
   border: 1px solid #b6b6b4;
 }
 .List {
-  width: 150px;
+  width: 100px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 0px;
-  margin: 0px;
+  margin: 0 auto 0 auto;
 }
 .Text {
   font-size: 12px;
@@ -46,4 +47,25 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 20px solid red;
+}
+@media screen and (min-width: 480px) {
+  .Container {
+    left: 27%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .Container {
+    left: 35%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .Container {
+    top: 145px;
+    left: 39%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .Container {
+    left: 42%;
+  }
 }

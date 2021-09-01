@@ -72,7 +72,7 @@ function ModalChooseColor({ toggleModalChoose, addSelectedColor }) {
     event.preventDefault();
     console.log('chosenColor', chosenColor);
     addSelectedColor(chosenColor);
-    // toggleModalChoose();
+    toggleModalChoose();
   };
 
   return (
