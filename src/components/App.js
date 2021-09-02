@@ -10,6 +10,11 @@ function App() {
   const [showModalChoose, setShowModalChoose] = useState(false);
   const [showModalPalette, setShowModalPalette] = useState(false);
 
+  useEffect(() => {
+    let initialColor = '#ff0000';
+    localStorage.setItem('currentColor', initialColor);
+  }, []);
+
   function toggleModalChoose() {
     if (showModalPalette) {
       setShowModalPalette(false);

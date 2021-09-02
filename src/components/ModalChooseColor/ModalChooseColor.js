@@ -65,6 +65,8 @@ function ModalChooseColor({ toggleModalChoose, addSelectedColor }) {
 
   const handleCancelBtnClick = event => {
     event.preventDefault();
+
+    setChosenColor(localStorage.getItem('currentColor'));
     toggleModalChoose();
   };
 
@@ -72,6 +74,7 @@ function ModalChooseColor({ toggleModalChoose, addSelectedColor }) {
     event.preventDefault();
     console.log('chosenColor', chosenColor);
     addSelectedColor(chosenColor);
+    localStorage.setItem('currentColor', chosenColor);
     toggleModalChoose();
   };
 

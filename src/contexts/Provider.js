@@ -7,6 +7,7 @@ export default function Provider({ children }) {
   const [chosenColor, setChosenColor] = useState('');
   const [color, setColor] = useState('#ff0000');
   const [selectedColors, setSelectedColors] = useState([]);
+  const [temporaryColor, setTemporaryColor] = useState('ff0000');
 
   useEffect(() => {}, [color]);
 
@@ -24,6 +25,8 @@ export default function Provider({ children }) {
       setColor,
       selectedColors,
       setSelectedColors,
+      temporaryColor,
+      setTemporaryColor,
     };
   }, [
     redColor,
